@@ -1,0 +1,12 @@
+<%= form_for Guest.new, controller: 'guests', action: 'create' do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :occupation %>
+	<%= f.text_field :occupation %>
+		<ul>
+			<% Episode.all.each do |episode| %>
+				<li><%= f.check_box episode.id %></li>
+			<% end %>
+		</ul>
+	<%= f.submit %>
+<% end %>
